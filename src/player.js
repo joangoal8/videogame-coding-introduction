@@ -10,7 +10,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         this.scene.physics.add.existing(this);
         //continuación
         this.cursor = this.scene.input.keyboard.createCursorKeys();
-       
+        // Move to the front
+        this.depth = 99
 
         this.anims.create({
             key: 'walk',
