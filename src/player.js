@@ -1,6 +1,6 @@
-import Phaser from 'phaser'
+import { Physics } from 'phaser'
 
-export default class Player extends Phaser.Physics.Arcade.Sprite
+export default class Player extends Physics.Arcade.Sprite
 {
     constructor(scene,x,y)
     {
@@ -12,6 +12,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         this.cursor = this.scene.input.keyboard.createCursorKeys();
         // Move to the front
         this.depth = 99
+
+        this.body.setSize(this.frame.width - 30, this.frame.height - 10, true)
 
         this.anims.create({
             key: 'walk',
@@ -33,7 +35,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
             repeat: -1
         });
         
-        
     }
 
     update(time,delta)
@@ -41,7 +42,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         if(this.cursor.left.isDown)
         {
             this.setVelocityX(-200);
-            
             this.setFlipX(true); 
         }
         else if(this.cursor.right.isDown)
@@ -56,14 +56,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         }
 
         if (this.cursor.space.isDown && this.body.onFloor()) {
-            
             this.setVelocityY(-200);
         }
 
-
         if(!this.body.onFloor())
             this.play('jump', true);
-        else if(this.body.velocity.x != 0)
+        else if(this.body.velocity.x !== 0)
             this.play('walk', true);
         else
             this.play('idle', true);

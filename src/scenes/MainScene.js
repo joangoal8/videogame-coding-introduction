@@ -1,10 +1,9 @@
-import Phaser from 'phaser'
+import {Scene} from 'phaser'
 import Player from '../player'
 import Seta from '../Seta'
 import Gema from '../Gema'
 
-
-export default class MainScene extends Phaser.Scene
+export default class MainScene extends Scene
 {
     constructor()
 	{
@@ -66,13 +65,13 @@ export default class MainScene extends Phaser.Scene
         for(var i = 0; i < this.objetos.length; ++i)
         {
             var obj = this.objetos[i];
-            if(obj.gid == 115) // en mi caso la seta
+            if(obj.gid === 115) // en mi caso la seta
             {
                 var seta = new Seta(this,obj.x,obj.y);
                 this.setas.push(seta);
                 this.physics.add.overlap(seta, this.player, this.spriteHit,null,this);
             }
-            if(obj.gid == 99){
+            if(obj.gid === 99){
                 var gema = new Gema(this,obj.x,obj.y);
                 this.gemas.push(gema);
                 this.physics.add.overlap(gema, this.player, this.spriteHitx2,null,this);
