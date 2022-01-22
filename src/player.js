@@ -8,6 +8,9 @@ export default class Player extends Physics.Arcade.Sprite
         this.scene = scene;
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
+
+        this.score = 0;
+
         //continuación
         this.cursor = this.scene.input.keyboard.createCursorKeys();
         // Move to the front
@@ -66,4 +69,19 @@ export default class Player extends Physics.Arcade.Sprite
         else
             this.play('idle', true);
     }
+
+
+    spriteHit (sprite1, sprite2) {
+        this.player.score += 1;
+        this.scoreText.setText('PUNTOS: ' + this.player.score);
+        sprite1.destroy();
+    }
+
+    spriteHitX2 (sprite1, sprite2){
+        this.player.score += 2;
+        this.scoreText.setText('PUNTOS: ' + this.player.score);
+        sprite1.destroy();
+    }
+
+
 }

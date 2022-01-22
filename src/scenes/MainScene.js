@@ -69,16 +69,17 @@ export default class MainScene extends Scene
             {
                 var seta = new Mushroom(this,obj.x,obj.y);
                 this.setas.push(seta);
-                this.physics.add.overlap(seta, this.player, this.spriteHit,null,this);
+                this.physics.add.overlap(seta, this.player, this.player.spriteHit,null,this);
             }
             if(obj.gid === 99){
                 var gema = new Gem(this,obj.x,obj.y);
                 this.gemas.push(gema);
-                this.physics.add.overlap(gema, this.player, this.spriteHitX2,null,this);
+                this.physics.add.overlap(gema, this.player, this.player.spriteHitX2,null,this);
             }
         }
-        this.score = 1;
-        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+this.score, { 
+
+
+        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
             fontSize: '20px', 
             fill: '#000', 
             fontFamily: 'verdana, arial, sans-serif' 
@@ -102,17 +103,6 @@ export default class MainScene extends Scene
 
     deathZone(){
         console.log("Muerto");
-    }
-    spriteHit (sprite1, sprite2) {
-
-        sprite1.destroy();
-        console.log("+1");
-    }
-
-    spriteHitX2 (sprite1, sprite2){
-        sprite1.destroy();
-        console.log("+2");
-
     }
 
     update (time, delta)
