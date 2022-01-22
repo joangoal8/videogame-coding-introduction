@@ -2,6 +2,7 @@ import {Scene} from 'phaser'
 import Player from '../player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
+import Slime from '../Slime'
 
 export default class MainScene extends Scene
 {
@@ -30,6 +31,8 @@ export default class MainScene extends Scene
         { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('skyeSprites','sky.png',
         { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('slime', 'slime_anim/slime_anim.png', 
+        { frameWidth: 44, frameHeight: 30 });
     }
 
     create()
@@ -39,6 +42,12 @@ export default class MainScene extends Scene
 
         // Create player
         this.player = new Player(this,100,100);
+
+        // Create slime enemy
+        this.slime1 = new Slime(this,800,100);
+
+        this.slime2 = new Slime(this,700,200);
+
 
         // Create tiles
         var map = this.make.tilemap({ key: 'map' });
@@ -53,6 +62,8 @@ export default class MainScene extends Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
+        this.physics.add.collider(this.slime1,layer);
+        this.physics.add.collider(this.slime2,layer);
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -99,6 +110,7 @@ export default class MainScene extends Scene
         console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
         */
 
+
     }
 
     deathZone(){
@@ -108,6 +120,8 @@ export default class MainScene extends Scene
     update (time, delta)
     {
         this.player.update(time,delta);
+        this.slime1.update(time,delta);
+        this.slime2.update(time,delta);
         //console.log(this.physics.add.overlap(this.player, this.graphics));
     }
 }
