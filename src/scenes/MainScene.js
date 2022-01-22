@@ -54,6 +54,7 @@ export default class MainScene extends Phaser.Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
+
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(0,0,map.widthInPixels,map.heightInPixels);
@@ -82,13 +83,27 @@ export default class MainScene extends Phaser.Scene
             fontSize: '20px', 
             fill: '#000', 
             fontFamily: 'verdana, arial, sans-serif' 
-          }).setScrollFactor(0);
         // Make text move with camera using setScrollFactor(0)
+          }).setScrollFactor(0);
         // Set text in front
         this.scoreText.depth=99;
-        
+
+    
+        /*
+        var r3 = this.add.rectangle(80, 530, 9999, 128);
+        r3.setStrokeStyle(2, 0xff0000);
+        this.physics.add.overlap(r3, this.player, this.deathZone,null,this);
+
+        this.graphics.lineStyle(1, 0x00ff00, 1);
+        this.graphics.strokeRectShape(this.rect);
+        this.physics.add.overlap(this.player, this.rect.obj,this.deathZone);
+        console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
+        */
     }
 
+    deathZone(){
+        console.log("Muerto");
+    }
     spriteHit (sprite1, sprite2) {
 
         sprite1.destroy();
@@ -104,5 +119,6 @@ export default class MainScene extends Phaser.Scene
     update (time, delta)
     {
         this.player.update(time,delta);
+        //console.log(this.physics.add.overlap(this.player, this.graphics));
     }
 }
