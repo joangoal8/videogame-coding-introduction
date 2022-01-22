@@ -1,6 +1,8 @@
 import Phaser from 'phaser'
 import Player from '../player'
 import Seta from '../Seta'
+import Gema from '../Gema'
+
 
 export default class MainScene extends Phaser.Scene
 {
@@ -59,6 +61,7 @@ export default class MainScene extends Phaser.Scene
         
         this.objetos = map.getObjectLayer('objetos')['objects'];
         this.setas = [];
+        this.gemas = [];
         for(var i = 0; i < this.objetos.length; ++i)
         {
             var obj = this.objetos[i];
@@ -67,6 +70,11 @@ export default class MainScene extends Phaser.Scene
                 var seta = new Seta(this,obj.x,obj.y);
                 this.setas.push(seta);
                 this.physics.add.overlap(seta, this.player, this.spriteHit,null,this);
+            }
+            if(obj.gid == 99){
+                var gema = new Gema(this,obj.x,obj.y);
+                this.gemas.push(gema);
+                this.physics.add.overlap(gema, this.player, this.spriteHitx2,null,this);
             }
         }
         this.score = 1;
@@ -84,6 +92,13 @@ export default class MainScene extends Phaser.Scene
     spriteHit (sprite1, sprite2) {
 
         sprite1.destroy();
+        console.log("+1");
+    }
+
+    spriteHitx2 (sprite1, sprite2){
+        sprite1.destroy();
+        console.log("+2");
+
     }
 
     update (time, delta)
