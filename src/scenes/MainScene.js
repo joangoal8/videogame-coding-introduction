@@ -1,7 +1,7 @@
 import {Scene} from 'phaser'
 import Player from '../player'
-import Seta from '../Seta'
-import Gema from '../Gema'
+import Mushroom from '../Mushroom'
+import Gem from '../Gem'
 
 export default class MainScene extends Scene
 {
@@ -67,14 +67,14 @@ export default class MainScene extends Scene
             var obj = this.objetos[i];
             if(obj.gid === 115) // en mi caso la seta
             {
-                var seta = new Seta(this,obj.x,obj.y);
+                var seta = new Mushroom(this,obj.x,obj.y);
                 this.setas.push(seta);
                 this.physics.add.overlap(seta, this.player, this.spriteHit,null,this);
             }
             if(obj.gid === 99){
-                var gema = new Gema(this,obj.x,obj.y);
+                var gema = new Gem(this,obj.x,obj.y);
                 this.gemas.push(gema);
-                this.physics.add.overlap(gema, this.player, this.spriteHitx2,null,this);
+                this.physics.add.overlap(gema, this.player, this.spriteHitX2,null,this);
             }
         }
         this.score = 1;
@@ -87,7 +87,6 @@ export default class MainScene extends Scene
         // Set text in front
         this.scoreText.depth=99;
 
-    
         /*
         var r3 = this.add.rectangle(80, 530, 9999, 128);
         r3.setStrokeStyle(2, 0xff0000);
@@ -98,6 +97,7 @@ export default class MainScene extends Scene
         this.physics.add.overlap(this.player, this.rect.obj,this.deathZone);
         console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
         */
+
     }
 
     deathZone(){
@@ -109,7 +109,7 @@ export default class MainScene extends Scene
         console.log("+1");
     }
 
-    spriteHitx2 (sprite1, sprite2){
+    spriteHitX2 (sprite1, sprite2){
         sprite1.destroy();
         console.log("+2");
 
