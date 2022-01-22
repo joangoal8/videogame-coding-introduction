@@ -2,6 +2,7 @@ import {Scene} from 'phaser'
 import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
+import Slime from '../Slime'
 
 export default class MainScene extends Scene
 {
@@ -30,6 +31,8 @@ export default class MainScene extends Scene
         { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('skyeSprites','sky.png',
         { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('slime', 'slime_anim/slime_anim.png', 
+        { frameWidth: 44, frameHeight: 30 });
     }
 
     create()
@@ -39,6 +42,12 @@ export default class MainScene extends Scene
 
         // Create player
         this.player = new Player(this,100,100);
+
+        // Create slime enemy
+        this.slime1 = new Slime(this,800,100);
+
+        this.slime2 = new Slime(this,700,200);
+
 
         // Create tiles
         var map = this.make.tilemap({ key: 'map' });
@@ -53,6 +62,8 @@ export default class MainScene extends Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
+        this.physics.add.collider(this.slime1,layer);
+        this.physics.add.collider(this.slime2,layer);
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -69,16 +80,17 @@ export default class MainScene extends Scene
             {
                 var seta = new Mushroom(this,obj.x,obj.y);
                 this.setas.push(seta);
-                this.physics.add.overlap(seta, this.player, this.spriteHit,null,this);
+                this.physics.add.overlap(seta, this.player, this.player.spriteHit,null,this);
             }
             if(obj.gid === 99){
                 var gema = new Gem(this,obj.x,obj.y);
                 this.gemas.push(gema);
-                this.physics.add.overlap(gema, this.player, this.spriteHitX2,null,this);
+                this.physics.add.overlap(gema, this.player, this.player.spriteHitX2,null,this);
             }
         }
-        this.score = 1;
-        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+this.score, { 
+
+
+        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
             fontSize: '20px', 
             fill: '#000', 
             fontFamily: 'verdana, arial, sans-serif' 
@@ -98,26 +110,18 @@ export default class MainScene extends Scene
         console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
         */
 
+
     }
 
     deathZone(){
         console.log("Muerto");
     }
-    spriteHit (sprite1, sprite2) {
-
-        sprite1.destroy();
-        console.log("+1");
-    }
-
-    spriteHitX2 (sprite1, sprite2){
-        sprite1.destroy();
-        console.log("+2");
-
-    }
 
     update (time, delta)
     {
         this.player.update(time,delta);
+        this.slime1.update(time,delta);
+        this.slime2.update(time,delta);
         //console.log(this.physics.add.overlap(this.player, this.graphics));
     }
 }
