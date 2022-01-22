@@ -1,5 +1,5 @@
 import {Scene} from 'phaser'
-import Player from '../player'
+import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
 
