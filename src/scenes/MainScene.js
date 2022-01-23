@@ -37,6 +37,7 @@ export default class MainScene extends Scene
 
     create()
     {
+        this.gameover = false
         //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');
         //bg_1.fixedToCamera = true;
 
@@ -45,8 +46,11 @@ export default class MainScene extends Scene
 
         // Create slime enemy
         this.slime1 = new Slime(this,800,100);
+        this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
 
         this.slime2 = new Slime(this,700,200);
+        this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
+
 
 
         // Create tiles
@@ -110,11 +114,45 @@ export default class MainScene extends Scene
         console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
         */
 
-
     }
 
     deathZone(){
         console.log("Muerto");
+    }
+
+    gameOverMenu(){
+        // Block camera follow
+        this.cameras.main.stopFollow();
+        // Set game over for blocking inputs in player
+        this.gameover = true
+        // Add GAME OVER text
+        var gameover = this.add.text(220, 200, 'GAME OVER', { 
+            fontSize: '60px', 
+            fill: '#ff0000', 
+            fontFamily: 'verdana, arial, sans-serif'
+        }).setScrollFactor(0); 
+        gameover.depth = 100;
+        // Add RESTART button
+        this.reload_button = this.add.text(300, 300, 'Restart', {
+            fontSize: '60px', 
+            fill: '#fff', 
+            fontFamily: 'verdana, arial, sans-serif'
+        }).setScrollFactor(0); 
+        this.reload_button.setInteractive()
+        .on('pointerdown', () => this.actionOnClick())
+        .on('pointerover', () => this.enterButtonHoverState())
+        .on('pointerout', () => this.enterButtonRestState() );
+
+        //this.scene.pause();
+    }
+    actionOnClick(){
+        this.scene.restart()
+    }
+    enterButtonHoverState(){
+        this.reload_button.setStyle({ fill: '#ff0'});
+    }
+    enterButtonRestState(){
+        this.reload_button.setStyle({ fill: '#fff' });
     }
 
     update (time, delta)

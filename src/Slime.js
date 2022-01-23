@@ -1,3 +1,4 @@
+import { Sleeping } from 'matter';
 import { Physics } from 'phaser'
 
 export default class Slime extends Physics.Arcade.Sprite
@@ -19,7 +20,8 @@ export default class Slime extends Physics.Arcade.Sprite
             frames: this.scene.anims.generateFrameNames('slime', { start: 1, end: 10}),
             frameRate: 10,
             repeat: -1
-        });      
+        });   
+        
     }
 
     update(time,delta)
@@ -29,8 +31,9 @@ export default class Slime extends Physics.Arcade.Sprite
     }
 
     playerHit (sprite1, sprite2) {
-        console.log('Jugador muerto');
+        // Hide sprite
+        sprite2.depth = -5
+        // Show game over menu
+        this.scene.scene.gameOverMenu()
     }
-
-
 }
