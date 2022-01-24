@@ -16,7 +16,7 @@ export default class Player extends Physics.Arcade.Sprite
         // Move to the front
         this.depth = 99
 
-        this.body.setSize(this.frame.width - 30, this.frame.height - 10, true)
+        this.body.setSize(this.frame.width - 30, this.frame.height - 10, true);
 
         this.anims.create({
             key: 'walk',
@@ -71,6 +71,9 @@ export default class Player extends Physics.Arcade.Sprite
                 this.play('idle', true);
         }
 
+        if (this.scene.game.canvas.height < this.y) {
+            this.playerDead()
+        }
     }
 
 
@@ -86,5 +89,8 @@ export default class Player extends Physics.Arcade.Sprite
         sprite1.destroy();
     }
 
-
+    playerDead () {
+        // Show game over menu
+        this.scene.gameOverMenu()
+    }
 }
