@@ -3,6 +3,7 @@ import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
 import Slime from '../Slime'
+import CloudPlatform from "../CloudPlatform";
 
 export default class MainScene extends Scene
 {
@@ -17,6 +18,7 @@ export default class MainScene extends Scene
         this.load.image('sky','sky.png');
         this.load.image('sea', 'sea.png');
         this.load.image('player', 'idle-1.png');
+        this.load.image('cloudPlatform', 'cloud-platform.png');
         //this.load.image('bg-1', 'sky.png');
 
         // Load map
@@ -51,8 +53,12 @@ export default class MainScene extends Scene
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
+        this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform1, this.player);
 
-
+        this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
+        this.physics.add.collider(this.cloudPlatform2, this.player);
+        
         // Create tiles
         var map = this.make.tilemap({ key: 'map' });
         var tiles = map.addTilesetImage('Plataformas', 'tiles');
