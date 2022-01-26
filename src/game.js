@@ -3,8 +3,8 @@ import Phaser from 'phaser'
 import MainScene from './scenes/MainScene'
 
 //Configuración de la escena
-var windows = {width:800,height: 480}
-var config = {
+const windows = {width: 800, height: 480};
+const config = {
     type: Phaser.AUTO,
     width: windows.width,
     height: windows.height,
@@ -15,13 +15,13 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 200 },
-            debug:false
+            gravity: {y: 200},
+            debug: false
         }
     }
 };
 
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
 export default game
 
 //'http://labs.phaser.io'

@@ -60,14 +60,14 @@ export default class MainScene extends Scene
         this.physics.add.collider(this.cloudPlatform2, this.player);
         
         // Create tiles
-        var map = this.make.tilemap({ key: 'map' });
-        var tiles = map.addTilesetImage('Plataformas', 'tiles');
-        var skyTiles = map.addTilesetImage('Fondos','sky')
-        
+        const map = this.make.tilemap({key: 'map'});
+        const tiles = map.addTilesetImage('Plataformas', 'tiles');
+        const skyTiles = map.addTilesetImage('Fondos', 'sky');
+
         // Create layers
-        var layer0 = map.createLayer('Fondo2', skyTiles, 0, 0);
-        var layer1 = map.createLayer('Fondo', tiles, 0, 0);
-        var layer = map.createLayer('Suelo', tiles, 0, 0);
+        const layer0 = map.createLayer('Fondo2', skyTiles, 0, 0);
+        const layer1 = map.createLayer('Fondo', tiles, 0, 0);
+        const layer = map.createLayer('Suelo', tiles, 0, 0);
 
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
@@ -83,22 +83,21 @@ export default class MainScene extends Scene
         this.objetos = map.getObjectLayer('objetos')['objects'];
         this.setas = [];
         this.gemas = [];
-        for(var i = 0; i < this.objetos.length; ++i)
+        for(let i = 0; i < this.objetos.length; ++i)
         {
-            var obj = this.objetos[i];
+            const obj = this.objetos[i];
             if(obj.gid === 115) // en mi caso la seta
             {
-                var seta = new Mushroom(this,obj.x,obj.y);
-                this.setas.push(seta);
-                this.physics.add.overlap(seta, this.player, this.player.spriteHit,null,this);
+                const mushroom = new Mushroom(this, obj.x, obj.y);
+                this.setas.push(mushroom);
+                this.physics.add.overlap(mushroom, this.player, this.player.spriteHit,null,this);
             }
             if(obj.gid === 99){
-                var gema = new Gem(this,obj.x,obj.y);
-                this.gemas.push(gema);
-                this.physics.add.overlap(gema, this.player, this.player.spriteHitX2,null,this);
+                const gem = new Gem(this, obj.x, obj.y);
+                this.gemas.push(gem);
+                this.physics.add.overlap(gem, this.player, this.player.spriteHitX2,null,this);
             }
         }
-
 
         this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
             fontSize: '20px', 
@@ -108,18 +107,6 @@ export default class MainScene extends Scene
           }).setScrollFactor(0);
         // Set text in front
         this.scoreText.depth=99;
-
-        /*
-        var r3 = this.add.rectangle(80, 530, 9999, 128);
-        r3.setStrokeStyle(2, 0xff0000);
-        this.physics.add.overlap(r3, this.player, this.deathZone,null,this);
-
-        this.graphics.lineStyle(1, 0x00ff00, 1);
-        this.graphics.strokeRectShape(this.rect);
-        this.physics.add.overlap(this.player, this.rect.obj,this.deathZone);
-        console.log(this.physics.add.overlap(this.player, this.graphics, this.deathZone));
-        */
-
     }
 
     deathZone(){
@@ -132,12 +119,12 @@ export default class MainScene extends Scene
         // Set game over for blocking inputs in player
         this.gameover = true
         // Add GAME OVER text
-        var gameover = this.add.text(220, 200, 'GAME OVER', { 
-            fontSize: '60px', 
-            fill: '#ff0000', 
+        const gameOver = this.add.text(220, 200, 'GAME OVER', {
+            fontSize: '60px',
+            fill: '#ff0000',
             fontFamily: 'verdana, arial, sans-serif'
-        }).setScrollFactor(0); 
-        gameover.depth = 100;
+        }).setScrollFactor(0);
+        gameOver.depth = 100;
         // Add RESTART button
         this.reload_button = this.add.text(300, 300, 'Restart', {
             fontSize: '60px', 
@@ -166,6 +153,7 @@ export default class MainScene extends Scene
         this.player.update(time,delta);
         this.slime1.update(time,delta);
         this.slime2.update(time,delta);
-        //console.log(this.physics.add.overlap(this.player, this.graphics));
+        this.cloudPlatform1.update(time, delta);
+        this.cloudPlatform2.update(time, delta);
     }
 }

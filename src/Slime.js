@@ -1,14 +1,10 @@
-import { Sleeping } from 'matter';
-import { Physics } from 'phaser'
+import GameSprite from "./GameSprite";
 
-export default class Slime extends Physics.Arcade.Sprite
+export default class Slime extends GameSprite
 {
     constructor(scene,x,y)
     {
         super(scene,x,y,'slime');
-        this.scene = scene;
-        this.scene.add.existing(this);
-        this.scene.physics.add.existing(this);
 
         // Move to the front
         this.depth = 99

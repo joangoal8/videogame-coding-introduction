@@ -1,12 +1,9 @@
-import { Physics } from 'phaser'
+import GameSprite from "./GameSprite";
 
-export default class CloudPlatform extends Physics.Arcade.Sprite {
+export default class CloudPlatform extends GameSprite {
 
     constructor(scene,x,y, range, direction) {
         super(scene, x, y, 'cloudPlatform')
-        this.scene = scene;
-        this.scene.add.existing(this);
-        this.scene.physics.add.existing(this);
         this.body.allowGravity = false;
         this.body.immovable = true;
         this.startX = x;
