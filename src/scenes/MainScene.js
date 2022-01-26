@@ -4,6 +4,8 @@ import Mushroom from '../Mushroom'
 import Gem from '../Gem'
 import Slime from '../Slime'
 import Bat from '../Bat'
+import Rino from '../Rino'
+
 import CloudPlatform from "../CloudPlatform";
 
 export default class MainScene extends Scene
@@ -43,7 +45,11 @@ export default class MainScene extends Scene
         this.load.spritesheet('slime', 'slime_anim/slime_anim.png', 
         { frameWidth: 44, frameHeight: 30 });
         this.load.spritesheet('bat', 'bat_anim/bat_anim.png', 
-        { frameWidth: 46, frameHeight: 30 });    }
+        { frameWidth: 46, frameHeight: 30 });
+        this.load.spritesheet('rino', 'rino_anim/rino_anim.png', 
+        { frameWidth: 52, frameHeight: 34 });
+
+        }
 
     create()
     {
@@ -63,11 +69,17 @@ export default class MainScene extends Scene
         this.slime1 = new Slime(this,800,100);
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
 
+
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
+
         this.bat1 = new Bat(this,500,200);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+
+
+        this.rino1 = new Rino(this,900,100);
+        this.physics.add.overlap(this.rino1, this.player, this.rino1.playerHit,null,this);
 
 
         this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
@@ -102,6 +114,8 @@ export default class MainScene extends Scene
         this.physics.add.collider(this.slime1,layer);
         this.physics.add.collider(this.slime2,layer);
         this.physics.add.collider(this.bat1,layer);
+        this.physics.add.collider(this.rino1,layer);
+
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -186,6 +200,7 @@ export default class MainScene extends Scene
         this.slime1.update(time,delta);
         this.slime2.update(time,delta);
         this.bat1.update(time,delta);
+        this.rino1.update(time,delta);
         this.cloudPlatform1.update(time, delta);
         this.cloudPlatform2.update(time, delta);
     }
