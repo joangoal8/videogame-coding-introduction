@@ -66,6 +66,9 @@ export default class MainScene extends Scene
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
+        this.bat1 = new Bat(this,500,200);
+        this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+
 
         this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
         this.physics.add.collider(this.cloudPlatform2, this.player);
