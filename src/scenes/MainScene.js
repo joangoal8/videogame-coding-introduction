@@ -88,16 +88,13 @@ export default class MainScene extends Scene
         this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
         this.physics.add.collider(this.cloudPlatform1, this.player);
 
-//cesar
-        //this.cloudPlatform3 = new CloudPlatform(this, 3391, 400, this.game.canvas.height / 5, 'VERTICAL_DOWN')
-        //this.physics.add.collider(this.cloudPlatform3, this.player);
-
-        this.cloudPlatform4 = new CloudPlatform(this, 3428, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
+        this.cloudPlatform4 = new CloudPlatform(this, 3528, 300, this.game.canvas.width / 10, 'HORIZONTAL_RIGHT')
         this.physics.add.collider(this.cloudPlatform4, this.player);
 
-        this.cloudPlatform5 = new CloudPlatform(this, 3591, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.cloudPlatform5 = new CloudPlatform(this, 3791, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
         this.physics.add.collider(this.cloudPlatform5, this.player);
-        //
+
+
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
         const tiles = map.addTilesetImage('Plataformas', 'tiles');
@@ -140,18 +137,10 @@ export default class MainScene extends Scene
                 this.physics.add.overlap(gem, this.player, this.player.spriteHitX2,null,this);
             }
         }
-//cesar
+
         this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { font: "25px Arial Black", fill: "#fff" }).setScrollFactor(0);
-        this.scoreText.setStroke('#00f', 16);
+        this.scoreText.setStroke('#00f', 5);
         this.scoreText.setShadow(2, 2, "#333333", 2, true, true);
-//
-//        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
-//            fontSize: '20px', 
-//            fill: '#000', 
-//            fontFamily: 'verdana, arial, sans-serif' 
-        // Make text move with camera using setScrollFactor(0)
-//          }).setScrollFactor(0);
-        // Set text in front
         this.scoreText.depth=99;
     }
 
@@ -203,5 +192,7 @@ export default class MainScene extends Scene
         this.rino1.update(time,delta);
         this.cloudPlatform1.update(time, delta);
         this.cloudPlatform2.update(time, delta);
+        this.cloudPlatform4.update(time, delta);
+        this.cloudPlatform5.update(time, delta);
     }
 }
