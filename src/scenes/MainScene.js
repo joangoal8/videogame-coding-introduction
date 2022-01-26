@@ -13,6 +13,12 @@ export default class MainScene extends Scene
 	}
     preload()
     {
+        // Load audio  //cesar
+        this.load.audio('theme', [
+            'audio/Hero_Quest_-_Piano.ogg',
+            'audio/Hero_Quest_-_Piano.mp3'
+        ]);
+
         // Load images
         this.load.image('tiles','Tileset.png');
         this.load.image('sky','sky.png');
@@ -39,6 +45,11 @@ export default class MainScene extends Scene
 
     create()
     {
+        //musica de fondo
+        var music = this.sound.add('theme');
+        music.play();
+        //
+
         this.gameover = false
         //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');
         //bg_1.fixedToCamera = true;
@@ -53,12 +64,23 @@ export default class MainScene extends Scene
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
-        this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform1, this.player);
 
         this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
         this.physics.add.collider(this.cloudPlatform2, this.player);
         
+        this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform1, this.player);
+
+//cesar
+        //this.cloudPlatform3 = new CloudPlatform(this, 3391, 400, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        //this.physics.add.collider(this.cloudPlatform3, this.player);
+
+        this.cloudPlatform4 = new CloudPlatform(this, 3428, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
+        this.physics.add.collider(this.cloudPlatform4, this.player);
+
+        this.cloudPlatform5 = new CloudPlatform(this, 3591, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform5, this.player);
+        //
         // Create tiles
         var map = this.make.tilemap({ key: 'map' });
         var tiles = map.addTilesetImage('Plataformas', 'tiles');
