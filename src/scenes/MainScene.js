@@ -42,11 +42,11 @@ export default class MainScene extends Scene
         { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('skyeSprites','sky.png',
         { frameWidth: 32, frameHeight: 32 });
-        this.load.spritesheet('slime', 'slime_anim/slime_anim.png', 
+        this.load.spritesheet('slime', 'enemy_anim/slime_anim.png', 
         { frameWidth: 44, frameHeight: 30 });
-        this.load.spritesheet('bat', 'bat_anim/bat_anim.png', 
+        this.load.spritesheet('bat', 'enemy_anim/bat_anim.png', 
         { frameWidth: 46, frameHeight: 30 });
-        this.load.spritesheet('rino', 'rino_anim/rino_anim.png', 
+        this.load.spritesheet('rino', 'enemy_anim/rino_anim.png', 
         { frameWidth: 52, frameHeight: 34 });
 
         }
