@@ -120,14 +120,17 @@ export default class MainScene extends Scene
                 this.physics.add.overlap(gema, this.player, this.player.spriteHitX2,null,this);
             }
         }
-
-
-        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
-            fontSize: '20px', 
-            fill: '#000', 
-            fontFamily: 'verdana, arial, sans-serif' 
+//cesar
+        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { font: "25px Arial Black", fill: "#fff" }).setScrollFactor(0);
+        this.scoreText.setStroke('#00f', 16);
+        this.scoreText.setShadow(2, 2, "#333333", 2, true, true);
+//
+//        this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { 
+//            fontSize: '20px', 
+//            fill: '#000', 
+//            fontFamily: 'verdana, arial, sans-serif' 
         // Make text move with camera using setScrollFactor(0)
-          }).setScrollFactor(0);
+//          }).setScrollFactor(0);
         // Set text in front
         this.scoreText.depth=99;
 
