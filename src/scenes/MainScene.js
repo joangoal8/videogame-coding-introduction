@@ -3,6 +3,7 @@ import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
 import Slime from '../Slime'
+import Bat from '../Bat'
 import CloudPlatform from "../CloudPlatform";
 
 export default class MainScene extends Scene
@@ -35,7 +36,8 @@ export default class MainScene extends Scene
         { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('slime', 'slime_anim/slime_anim.png', 
         { frameWidth: 44, frameHeight: 30 });
-    }
+        this.load.spritesheet('bat', 'bat_anim/bat_anim.png', 
+        { frameWidth: 46, frameHeight: 30 });    }
 
     create()
     {
@@ -52,6 +54,12 @@ export default class MainScene extends Scene
 
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
+
+
+        // Create bat enemy
+        this.bat1 = new Bat(this,800,200);
+        this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+
 
         this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
         this.physics.add.collider(this.cloudPlatform1, this.player);
@@ -74,6 +82,7 @@ export default class MainScene extends Scene
         this.physics.add.collider(this.player,layer);
         this.physics.add.collider(this.slime1,layer);
         this.physics.add.collider(this.slime2,layer);
+        this.physics.add.collider(this.bat1,layer);
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -153,6 +162,7 @@ export default class MainScene extends Scene
         this.player.update(time,delta);
         this.slime1.update(time,delta);
         this.slime2.update(time,delta);
+        this.bat1.update(time,delta);
         this.cloudPlatform1.update(time, delta);
         this.cloudPlatform2.update(time, delta);
     }
