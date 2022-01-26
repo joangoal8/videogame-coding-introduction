@@ -1,19 +1,18 @@
 import GameSprite from "./GameSprite";
 
-export default class Slime extends GameSprite
+export default class Bat extends GameSprite
 {
     constructor(scene,x,y)
     {
-        super(scene,x,y,'slime');
+        super(scene,x,y,'bat');
 
         // Move to the front
         this.depth = 99
-
-        //this.body.setSize(this.frame.width - 30, this.frame.height - 10, true)
-
+        this.body.allowGravity = false;
+        
         this.anims.create({
             key: 'move',
-            frames: this.scene.anims.generateFrameNames('slime', { start: 1, end: 10}),
+            frames: this.scene.anims.generateFrameNames('bat', { start: 1, end: 7}),
             frameRate: 10,
             repeat: -1
         });   
