@@ -6,7 +6,7 @@ import Bat from '../Bat'
 
 import CloudPlatform from "../CloudPlatform";
 
-export default class Level2 extends Scene
+export default class Level3 extends Scene
 {
     constructor()
 	{
@@ -28,7 +28,7 @@ export default class Level2 extends Scene
         
 
         // Load map
-        this.load.tilemapTiledJSON('map','Level2.json');
+        this.load.tilemapTiledJSON('map','Level3.json');
 
         // Load atlas
         this.load.atlas('sprites_jugador','player_anim/player_anim.png',
@@ -56,13 +56,10 @@ export default class Level2 extends Scene
         //bg_1.fixedToCamera = true;
 
         // Create player
-        this.player = new Player(this,100,1600);
+        this.player = new Player(this,100,100);
 
         // Create slime enemy
-        this.slime1 = new Slime(this,200,100);
-        this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
-
-
+       
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
         const tiles = map.addTilesetImage('Plataformas', 'tiles');
@@ -76,8 +73,6 @@ export default class Level2 extends Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
-        this.physics.add.collider(this.slime1,layer);
-
 
         this.cameras.main.setBounds(-80, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
