@@ -27,7 +27,6 @@ export default class Level2 extends Scene
         this.load.image('sky','sky2.png');
         this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
-        
 
         // Load map
         this.load.tilemapTiledJSON('map','Level2.json');
@@ -56,7 +55,6 @@ export default class Level2 extends Scene
         var music = this.sound.add('theme');
         //music.play();
         //
-
         this.gameover = false
         //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');
         //bg_1.fixedToCamera = true;
@@ -67,7 +65,6 @@ export default class Level2 extends Scene
         // Create slime enemy
         this.slime1 = new Slime(this,200,100);
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
-
 
         // Create tiles
         const map = this.make.tilemap({key: 'map'});

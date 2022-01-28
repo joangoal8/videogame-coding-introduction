@@ -48,13 +48,12 @@ export default class MainScene extends Scene
         { frameWidth: 46, frameHeight: 30 });
         this.load.spritesheet('rino', 'enemy_anim/rino_anim.png', 
         { frameWidth: 52, frameHeight: 34 });
-
         }
 
     create()
     {
         //musica de fondo
-        var music = this.sound.add('theme');
+        const music = this.sound.add('theme');
         music.play();
         //
 
@@ -69,18 +68,14 @@ export default class MainScene extends Scene
         this.slime1 = new Slime(this,800,100);
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
 
-
         this.slime2 = new Slime(this,700,200);
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
-
 
         this.bat1 = new Bat(this,500,200);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
 
-
         this.rino1 = new Rino(this,900,100);
         this.physics.add.overlap(this.rino1, this.player, this.rino1.playerHit,null,this);
-
 
         this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
         this.physics.add.collider(this.cloudPlatform2, this.player);
@@ -93,7 +88,6 @@ export default class MainScene extends Scene
 
         this.cloudPlatform5 = new CloudPlatform(this, 3791, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
         this.physics.add.collider(this.cloudPlatform5, this.player);
-
 
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
@@ -113,11 +107,9 @@ export default class MainScene extends Scene
         this.physics.add.collider(this.bat1,layer);
         this.physics.add.collider(this.rino1,layer);
 
-
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(0,0,map.widthInPixels,map.heightInPixels);
-
         
         this.objetos = map.getObjectLayer('objetos')['objects'];
         this.setas = [];

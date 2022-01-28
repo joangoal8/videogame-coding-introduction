@@ -12,7 +12,7 @@ const config = {
     parent: "canvas",
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    scene: Level2,
+    scene: MainScene,
     physics: {
         default: 'arcade',
         arcade: {
