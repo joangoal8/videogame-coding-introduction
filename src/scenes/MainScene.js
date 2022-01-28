@@ -18,8 +18,8 @@ export default class MainScene extends Scene
     {
         // Load audio  //cesar
         this.load.audio('theme', [
-            'audio/Hero_Quest_-_Piano.ogg',
-            'audio/Hero_Quest_-_Piano.mp3'
+            'audio/Ship.ogg',
+            'audio/Ship.mp3'
         ]);
 
         // Load images
@@ -54,7 +54,7 @@ export default class MainScene extends Scene
     create()
     {
         //musica de fondo
-        var music = this.sound.add('theme');
+        var music = this.sound.add('theme', {volume: 0.5, loop: true});
         music.play();
         //
 

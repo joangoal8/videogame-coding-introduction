@@ -2,9 +2,7 @@ import {Scene} from 'phaser'
 import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
-import Slime from '../Slime'
 import Bat from '../Bat'
-import Rino from '../Rino'
 
 import CloudPlatform from "../CloudPlatform";
 
@@ -12,7 +10,7 @@ export default class Level2 extends Scene
 {
     constructor()
 	{
-		super('Level2')
+		super('Level3')
 	}
     preload()
     {
@@ -41,12 +39,8 @@ export default class Level2 extends Scene
         { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('skyeSprites','sky2.png',
         { frameWidth: 32, frameHeight: 32 });
-        this.load.spritesheet('slime', 'enemy_anim/slime_anim.png', 
-        { frameWidth: 44, frameHeight: 30 });
         this.load.spritesheet('bat', 'enemy_anim/bat_anim.png', 
         { frameWidth: 46, frameHeight: 30 });
-        this.load.spritesheet('rino', 'enemy_anim/rino_anim.png', 
-        { frameWidth: 52, frameHeight: 34 });
 
         }
 
@@ -156,6 +150,5 @@ export default class Level2 extends Scene
     update (time, delta)
     {
         this.player.update(time,delta);
-        this.slime1.update(time,delta);
     }
 }
