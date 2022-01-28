@@ -61,10 +61,32 @@ export default class Level3 extends Scene
 
         this.bat1 = new Bat(this,500,200);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+        this.bat2 = new Bat(this,1500,300);
+        this.physics.add.overlap(this.bat2, this.player, this.bat2.playerHit,null,this);
+        this.bat3 = new Bat(this,2500,300);
+        this.physics.add.overlap(this.bat3, this.player, this.bat3.playerHit,null,this);
+        this.bat4 = new Bat(this,1000,250);
+        this.physics.add.overlap(this.bat4, this.player, this.bat4.playerHit,null,this);
+        this.bat5 = new Bat(this,2000,250);
+        this.physics.add.overlap(this.bat5, this.player, this.bat5.playerHit,null,this);
+        this.bat6 = new Bat(this,3000,400);
+        this.physics.add.overlap(this.bat6, this.player, this.bat6.playerHit,null,this);
 
         // Create cloudplatforms
         this.cloudPlatform1 = new CloudPlatform(this, 300, 400, this.game.canvas.height / 4, 'VERTICAL_DOWN')
         this.physics.add.collider(this.cloudPlatform1, this.player);
+        this.cloudPlatform2 = new CloudPlatform(this, 650, 470, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform2, this.player);
+        this.cloudPlatform3 = new CloudPlatform(this, 1100, 350, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform3, this.player);
+        this.cloudPlatform4 = new CloudPlatform(this, 1720, 420, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform4, this.player);
+        this.cloudPlatform5 = new CloudPlatform(this, 2300, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform5, this.player);
+        this.cloudPlatform6 = new CloudPlatform(this, 2600, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform6, this.player);
+        this.cloudPlatform7 = new CloudPlatform(this, 2900, 520, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform7, this.player);
 
        
         // Create tiles
@@ -80,8 +102,6 @@ export default class Level3 extends Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
-
-        this.physics.add.collider(this.bat1,layer);
 
         this.cameras.main.setBounds(-80, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -156,6 +176,11 @@ export default class Level3 extends Scene
     {
         this.player.update(time,delta);
         this.bat1.update(time,delta);
-        this.cloudPlatform1.update(time, delta);
+        this.bat2.update(time,delta);
+        this.bat3.update(time,delta);
+        this.bat4.update(time,delta);
+        this.bat5.update(time,delta);
+        this.bat6.update(time,delta);
+ //       this.cloudPlatform1.update(time, delta);
    }
 }
