@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 
 import MainScene from './scenes/MainScene'
+import Level2 from './scenes/Level2'
 
 //Configuración de la escena
 const windows = {width: 800, height: 480};
@@ -11,7 +12,7 @@ const config = {
     parent: "canvas",
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    scene: MainScene,
+    scene: Level2,
     physics: {
         default: 'arcade',
         arcade: {

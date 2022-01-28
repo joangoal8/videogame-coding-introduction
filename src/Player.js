@@ -72,7 +72,7 @@ export default class Player extends Physics.Arcade.Sprite
         }
 
         if (this.scene.game.canvas.height < this.y) {
-            this.playerDead()
+           // this.playerDead()
         }
     }
 
