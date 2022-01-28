@@ -25,7 +25,6 @@ export default class Level3 extends Scene
         this.load.image('sky','sky2.png');
         this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
-        
 
         // Load map
         this.load.tilemapTiledJSON('map','Level3.json');
@@ -56,9 +55,17 @@ export default class Level3 extends Scene
         //bg_1.fixedToCamera = true;
 
         // Create player
-        this.player = new Player(this,100,100);
+        this.player = new Player(this,100,300);
 
-        // Create slime enemy
+        // Create enemy
+
+        this.bat1 = new Bat(this,500,200);
+        this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+
+        // Create cloudplatforms
+        this.cloudPlatform1 = new CloudPlatform(this, 300, 400, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform1, this.player);
+
        
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
@@ -73,6 +80,8 @@ export default class Level3 extends Scene
         //enable collisions for every tile
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
+
+        this.physics.add.collider(this.bat1,layer);
 
         this.cameras.main.setBounds(-80, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -132,6 +141,7 @@ export default class Level3 extends Scene
 
         //this.scene.pause();
     }
+    
     actionOnClick(){
         this.scene.restart()
     }
@@ -145,5 +155,7 @@ export default class Level3 extends Scene
     update (time, delta)
     {
         this.player.update(time,delta);
-    }
+        this.bat1.update(time,delta);
+        this.cloudPlatform1.update(time, delta);
+   }
 }
