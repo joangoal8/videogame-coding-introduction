@@ -70,10 +70,10 @@ export default class MainScene extends Scene
         this.player = new Player(this,100,100);
 
         // Create slime enemy
-        this.slime1 = new Slime(this,800,100);
+        this.slime1 = new Slime(this,800,100,100,'LEFT');
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
 
-        this.slime2 = new Slime(this,700,200);
+        this.slime2 = new Slime(this,700,200,100,'RIGHT');
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
         this.bat1 = new Bat(this,500,200);
