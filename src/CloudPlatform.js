@@ -16,27 +16,75 @@ export default class CloudPlatform extends GameSprite {
 
     update(time,delta)
     {
-        if (this.direction === 'HORIZONTAL_RIGHT' && (this.x < (this.startX + this.range / 2))) {
-            this.x++;
+        if (this.direction === 'HORIZONTAL_RIGHT' && (this.x < (this.startX + this.range / 2))) 
+        {
+            //this.x++;
+            this.setVelocityX(+50);
             if (this.x === (this.startX + this.range / 2)) {
+                this.direction = 'HORIZONTAL_LEFT';
+                this.setVelocityX(-50);
+            }
+        }else{ 
+            if (this.direction === 'HORIZONTAL_LEFT') 
+            {
+                this.x = this.x--;
+                this.setVelocityX(-50);
                 this.direction = 'HORIZONTAL_LEFT';
             }
         }
-        if (this.direction === 'HORIZONTAL_LEFT' && (this.x > (this.startX - this.range / 2))) {
-            this.x--;
-            if (this.x === (this.startX - this.range / 2)) {
+ 
+        if (this.direction === 'HORIZONTAL_LEFT' && (this.x > (this.startX - this.range / 2))) 
+        {
+            //this.x--;
+            this.setVelocityX(-50);
+
+            if (this.x === (this.startX - this.range / 2)) 
+            {
+                this.direction = 'HORIZONTAL_RIGHT';
+                this.setVelocityX(+50);
+            }
+        }else{ 
+            if (this.direction === 'HORIZONTAL_LEFT') 
+            {
+                this.x = this.x++;
+                this.setVelocityX(+50);
                 this.direction = 'HORIZONTAL_RIGHT';
             }
         }
-        if (this.direction === 'VERTICAL_DOWN' && (this.y < (this.startY + this.range / 2))) {
-            this.y++;
-            if (this.y === (this.startY + this.range / 2)) {
+
+        if (this.direction === 'VERTICAL_DOWN' && (this.y < (this.startY + this.range / 2))) 
+        {
+            //this.y++;
+            this.setVelocityY(+50);
+
+            if (this.y === (this.startY + this.range / 2)) 
+            {
+                this.direction = 'VERTICAL_UP';
+                
+            }
+        }else{ 
+            if (this.direction === 'VERTICAL_DOWN') 
+            {
+                this.y = this.y++;
+                this.setVelocityY(-50);
                 this.direction = 'VERTICAL_UP';
             }
-        }
-        if (this.direction === 'VERTICAL_UP' && (this.y > (this.startY - this.range / 2))) {
-            this.y--;
-            if (this.y === (this.startY - this.range / 2)) {
+        }    
+        if (this.direction === 'VERTICAL_UP' && (this.y > (this.startY - this.range / 2))) 
+        {
+            //this.y--;
+            this.setVelocityY(-50);
+
+            if (this.y === (this.startY - this.range / 2)) 
+            {
+                this.direction = 'VERTICAL_DOWN';
+                this.setVelocityY(+50);
+            }
+        }else{ 
+            if (this.direction === 'VERTICAL_UP') 
+            {
+                this.y = this.y--;
+                this.setVelocityY(-50);
                 this.direction = 'VERTICAL_DOWN';
             }
         }

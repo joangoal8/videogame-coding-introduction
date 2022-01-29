@@ -53,8 +53,8 @@ export default class Level2 extends Scene
     create()
     {
         //musica de fondo
-        var music = this.sound.add('theme', {volume: 0.5, loop: true});
-        music.play();
+        this.music = this.sound.add('theme', {volume: 0.5, loop: true});
+        this.music.play();
         //
 
         this.gameover = false
@@ -122,7 +122,8 @@ export default class Level2 extends Scene
         // Block camera follow
         this.cameras.main.stopFollow();
         // Set game over for blocking inputs in player
-        this.gameover = true
+        this.gameover = true;
+        this.music.stop();
         // Add GAME OVER text
         const gameOver = this.add.text(220, 200, 'GAME OVER', {
             fontSize: '60px',

@@ -16,8 +16,8 @@ export default class Level3 extends Scene
     {
         // Load audio  //cesar
         this.load.audio('theme', [
-            'audio/New_Hope.ogg',
-            'audio/New_Hope.mp3'
+            'audio/Yellow-Forest.ogg',
+            'audio/Yellow-Forest.mp3'
         ]);
 
         // Load images
@@ -46,8 +46,8 @@ export default class Level3 extends Scene
     create()
     {
         //musica de fondo
-        var music = this.sound.add('theme', {volume: 0.5, loop: true});
-        music.play();
+        this.music = this.sound.add('theme', {volume: 0.5, loop: true});
+        this.music.play();
         //
 
         this.gameover = false
@@ -140,7 +140,8 @@ export default class Level3 extends Scene
         // Block camera follow
         this.cameras.main.stopFollow();
         // Set game over for blocking inputs in player
-        this.gameover = true
+        this.music.stop();
+        this.gameover = true;
         // Add GAME OVER text
         const gameOver = this.add.text(220, 200, 'GAME OVER', {
             fontSize: '60px',
@@ -181,6 +182,12 @@ export default class Level3 extends Scene
         this.bat4.update(time,delta);
         this.bat5.update(time,delta);
         this.bat6.update(time,delta);
- //       this.cloudPlatform1.update(time, delta);
-   }
+        this.cloudPlatform1.update(time, delta);
+        this.cloudPlatform2.update(time, delta);
+        this.cloudPlatform3.update(time, delta);
+        this.cloudPlatform4.update(time, delta);
+        this.cloudPlatform5.update(time, delta);
+        this.cloudPlatform6.update(time, delta);
+        this.cloudPlatform7.update(time, delta);
+    }
 }
