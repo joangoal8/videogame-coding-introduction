@@ -1,28 +1,6 @@
-import Phaser from 'phaser'
+import gameControllerInstance from "./GameController";
 
-import MainScene from './scenes/MainScene'
-import Level2 from './scenes/Level2'
-
-//Configuración de la escena
-const windows = {width: 800, height: 480};
-const config = {
-    type: Phaser.AUTO,
-    width: windows.width,
-    height: windows.height,
-    parent: "canvas",
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
-    scene: MainScene,
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: {y: 200},
-            debug: false
-        }
-    }
-};
-
-const game = new Phaser.Game(config);
+let game = gameControllerInstance.getLevel();
 export default game
 
 //'http://labs.phaser.io'

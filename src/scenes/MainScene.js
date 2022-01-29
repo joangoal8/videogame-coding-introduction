@@ -7,6 +7,7 @@ import Bat from '../Bat'
 import Rino from '../Rino'
 
 import CloudPlatform from "../CloudPlatform";
+import gameControllerInstance from "../GameController";
 
 export default class MainScene extends Scene
 {
@@ -18,8 +19,8 @@ export default class MainScene extends Scene
     {
         // Load audio  //cesar
         this.load.audio('theme', [
-            'audio/Hero_Quest_-_Piano.ogg',
-            'audio/Hero_Quest_-_Piano.mp3'
+            'audio/Ship.ogg',
+            'audio/Ship.mp3'
         ]);
 
         // Load images
@@ -53,7 +54,7 @@ export default class MainScene extends Scene
     create()
     {
         //musica de fondo
-        const music = this.sound.add('theme');
+        const music = this.sound.add('theme', {volume: 0.5, loop: true});
         music.play();
         //
 
@@ -154,20 +155,36 @@ export default class MainScene extends Scene
         gameOver.depth = 100;
         // Add RESTART button
         this.reload_button = this.add.text(300, 300, 'Restart', {
-            fontSize: '60px', 
-            fill: '#fff', 
+            fontSize: '60px',
+            fill: '#fff',
             fontFamily: 'verdana, arial, sans-serif'
-        }).setScrollFactor(0); 
+        }).setScrollFactor(0);
+
+        this.next_level_button = this.add.text(300, 400, 'Next Level', {
+            fontSize: '60px',
+            fill: '#fff',
+            fontFamily: 'verdana, arial, sans-serif'
+        }).setScrollFactor(0);
+
         this.reload_button.setInteractive()
         .on('pointerdown', () => this.actionOnClick())
         .on('pointerover', () => this.enterButtonHoverState())
         .on('pointerout', () => this.enterButtonRestState() );
 
-        //this.scene.pause();
+        this.next_level_button.setInteractive()
+            .on('pointerdown', () => this.nextLevelActionOnClick())
+            .on('pointerover', () => this.enterButtonHoverState())
+            .on('pointerout', () => this.enterButtonRestState() );
     }
+
     actionOnClick(){
-        this.scene.restart()
+        gameControllerInstance.restart(this.scene);
     }
+
+    nextLevelActionOnClick(){
+        gameControllerInstance.nextLevel();
+    }
+
     enterButtonHoverState(){
         this.reload_button.setStyle({ fill: '#ff0'});
     }
