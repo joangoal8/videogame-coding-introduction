@@ -5,6 +5,10 @@ import Gem from '../Gem'
 import Slime from '../Slime'
 import Bat from '../Bat'
 import Rino from '../Rino'
+import Goal from '../Goal'
+import gameControllerInstance from "../GameController";
+
+
 
 import CloudPlatform from "../CloudPlatform";
 
@@ -51,6 +55,8 @@ export default class Level2 extends Scene
 
     create()
     {
+        // Check for only one overlap 
+        this.overlapTriggered = false;
         //musica de fondo
         this.music = this.sound.add('theme', {volume: 0.5, loop: true});
         this.music.play();
@@ -89,6 +95,7 @@ export default class Level2 extends Scene
         this.objetos = map.getObjectLayer('Objetos')['objects'];
         this.setas = [];
         this.gemas = [];
+        this.goals = [];
         for(let i = 0; i < this.objetos.length; ++i)
         {
             const obj = this.objetos[i];
@@ -103,6 +110,11 @@ export default class Level2 extends Scene
                 this.gemas.push(gem);
                 this.physics.add.overlap(gem, this.player, this.player.spriteHitX2,null,this);
             }
+            if(obj.gid === 121 || obj.gid === 138 || obj.gid === 157 || obj.gid === 175){
+                const goal = new Goal(this, obj.x, obj.y);
+                this.goals.push(goal);
+                this.physics.add.overlap(goal, this.player, this.goalOverlap,null,this);
+            }
         }
 
         this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { font: "25px Arial Black", fill: "#fff" }).setScrollFactor(0);
@@ -111,10 +123,15 @@ export default class Level2 extends Scene
         this.scoreText.depth=99;
     }
 
-    deathZone(){
-        console.log("Muerto");
+    goalOverlap(player){
+        if(this.overlapTriggered){
+            this.physics.world.removeCollider(player);
+            return;
+          };
+          console.log('overlap');
+          this.overlapTriggered=true;
+          gameControllerInstance.nextLevel();
     }
-
     gameOverMenu(){
         // Block camera follow
         this.cameras.main.stopFollow();

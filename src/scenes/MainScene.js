@@ -55,7 +55,7 @@ export default class MainScene extends Scene
 
     create()
     {
-
+        // Check for only one overlap 
         this.overlapTriggered = false;
         //musica de fondo
         this.music = this.sound.add('theme', {volume: 0.5, loop: true});
