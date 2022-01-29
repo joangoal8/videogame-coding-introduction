@@ -83,16 +83,13 @@ export default class MainScene extends Scene
         this.physics.add.overlap(this.rino1, this.player, this.rino1.playerHit,null,this);
 
 
-        this.cloudPlatform1 = new CloudPlatform(this, 3100, 500, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT') 
+        this.cloudPlatform1 = new CloudPlatform(this, 3100, 300, this.game.canvas.width / 5, 'VERTICAL_UP') 
         this.physics.add.collider(this.cloudPlatform1, this.player);
-
-        this.cloudPlatform2 = new CloudPlatform(this, 3200, 300, this.game.canvas.height / 5, 'VERTICAL_DOWN') 
+        this.cloudPlatform2 = new CloudPlatform(this, 3300, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT') 
         this.physics.add.collider(this.cloudPlatform2, this.player);
-
-        this.cloudPlatform3 = new CloudPlatform(this, 3200, 100, this.game.canvas.width / 10, 'HORIZONTAL_LEFT') 
+        this.cloudPlatform3 = new CloudPlatform(this, 3550, 200, this.game.canvas.width / 5, 'HORIZONTAL_LEFT') 
         this.physics.add.collider(this.cloudPlatform3, this.player);
-
-        this.cloudPlatform4 = new CloudPlatform(this, 3100, 300, this.game.canvas.height / 5, 'VERTICAL_UP') 
+        this.cloudPlatform4 = new CloudPlatform(this, 3800, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT') 
         this.physics.add.collider(this.cloudPlatform4, this.player);
 
         // Create tiles
@@ -222,5 +219,5 @@ export default class MainScene extends Scene
         this.cloudPlatform2.update(time, delta);
         this.cloudPlatform3.update(time, delta);
         this.cloudPlatform4.update(time, delta);
-    }
+   }
 }

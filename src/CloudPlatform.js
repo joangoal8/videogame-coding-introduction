@@ -25,9 +25,9 @@ export default class CloudPlatform extends GameSprite {
                 this.setVelocityX(-50);
             }
         }else{ 
-            if (this.direction === 'HORIZONTAL_LEFT') 
+            if (this.direction === 'HORIZONTAL_RIGHT') 
             {
-                this.x = this.x--;
+                this.x--;
                 this.setVelocityX(-50);
                 this.direction = 'HORIZONTAL_LEFT';
             }
@@ -46,7 +46,7 @@ export default class CloudPlatform extends GameSprite {
         }else{ 
             if (this.direction === 'HORIZONTAL_LEFT') 
             {
-                this.x = this.x++;
+                this.x++;
                 this.setVelocityX(+50);
                 this.direction = 'HORIZONTAL_RIGHT';
             }
@@ -65,7 +65,7 @@ export default class CloudPlatform extends GameSprite {
         }else{ 
             if (this.direction === 'VERTICAL_DOWN') 
             {
-                this.y = this.y++;
+                this.y++;
                 this.setVelocityY(-50);
                 this.direction = 'VERTICAL_UP';
             }
@@ -83,7 +83,7 @@ export default class CloudPlatform extends GameSprite {
         }else{ 
             if (this.direction === 'VERTICAL_UP') 
             {
-                this.y = this.y--;
+                this.y--;
                 this.setVelocityY(-50);
                 this.direction = 'VERTICAL_DOWN';
             }
