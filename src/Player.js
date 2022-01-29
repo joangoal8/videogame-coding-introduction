@@ -1,4 +1,6 @@
 import { Physics } from 'phaser'
+import gameControllerInstance from "./GameController";
+
 
 export default class Player extends Physics.Arcade.Sprite
 {

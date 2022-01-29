@@ -2,6 +2,7 @@ import {Scene} from 'phaser'
 import Player from '../Player'
 import Mushroom from '../Mushroom'
 import Gem from '../Gem'
+import Goal from '../Goal'
 import Slime from '../Slime'
 import Bat from '../Bat'
 import Rino from '../Rino'
@@ -54,6 +55,8 @@ export default class MainScene extends Scene
 
     create()
     {
+
+        this.overlapTriggered = false;
         //musica de fondo
         this.music = this.sound.add('theme', {volume: 0.5, loop: true});
         this.music.play();
@@ -80,16 +83,16 @@ export default class MainScene extends Scene
         this.physics.add.overlap(this.rino1, this.player, this.rino1.playerHit,null,this);
 
 
-        this.cloudPlatform1 = new CloudPlatform(this, 3100, 500, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
+        this.cloudPlatform1 = new CloudPlatform(this, 3100, 500, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT') 
         this.physics.add.collider(this.cloudPlatform1, this.player);
 
-        this.cloudPlatform2 = new CloudPlatform(this, 3200, 300, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.cloudPlatform2 = new CloudPlatform(this, 3200, 300, this.game.canvas.height / 5, 'VERTICAL_DOWN') 
         this.physics.add.collider(this.cloudPlatform2, this.player);
 
-        this.cloudPlatform3 = new CloudPlatform(this, 3200, 100, this.game.canvas.width / 10, 'HORIZONTAL_LEFT')
+        this.cloudPlatform3 = new CloudPlatform(this, 3200, 100, this.game.canvas.width / 10, 'HORIZONTAL_LEFT') 
         this.physics.add.collider(this.cloudPlatform3, this.player);
 
-        this.cloudPlatform4 = new CloudPlatform(this, 3100, 300, this.game.canvas.height / 5, 'VERTICAL_UP')
+        this.cloudPlatform4 = new CloudPlatform(this, 3100, 300, this.game.canvas.height / 5, 'VERTICAL_UP') 
         this.physics.add.collider(this.cloudPlatform4, this.player);
 
         // Create tiles
@@ -117,6 +120,7 @@ export default class MainScene extends Scene
         this.objetos = map.getObjectLayer('objetos')['objects'];
         this.setas = [];
         this.gemas = [];
+        this.goals = [];
         for(let i = 0; i < this.objetos.length; ++i)
         {
             const obj = this.objetos[i];
@@ -131,6 +135,11 @@ export default class MainScene extends Scene
                 this.gemas.push(gem);
                 this.physics.add.overlap(gem, this.player, this.player.spriteHitX2,null,this);
             }
+            if(obj.gid === 121 || obj.gid === 138 || obj.gid === 157 || obj.gid === 175){
+                const goal = new Goal(this, obj.x, obj.y);
+                this.goals.push(goal);
+                this.physics.add.overlap(goal, this.player, this.goalOverlap,null,this);
+            }
         }
 
         this.scoreText = this.add.text(16, 16, 'PUNTOS: '+ this.player.score, { font: "25px Arial Black", fill: "#fff" }).setScrollFactor(0);
@@ -139,8 +148,14 @@ export default class MainScene extends Scene
         this.scoreText.depth=99;
     }
 
-    deathZone(){
-        console.log("Muerto");
+    goalOverlap(player){
+        if(this.overlapTriggered){
+            this.physics.world.removeCollider(player);
+            return;
+          };
+          console.log('overlap');
+          this.overlapTriggered=true;
+          gameControllerInstance.nextLevel();
     }
 
     gameOverMenu(){
@@ -162,22 +177,23 @@ export default class MainScene extends Scene
             fill: '#fff',
             fontFamily: 'verdana, arial, sans-serif'
         }).setScrollFactor(0);
-
+/*
         this.next_level_button = this.add.text(300, 400, 'Next Level', {
             fontSize: '60px',
             fill: '#fff',
             fontFamily: 'verdana, arial, sans-serif'
         }).setScrollFactor(0);
-
+*/
         this.reload_button.setInteractive()
         .on('pointerdown', () => this.actionOnClick())
         .on('pointerover', () => this.enterButtonHoverState())
         .on('pointerout', () => this.enterButtonRestState() );
-
+        /*
         this.next_level_button.setInteractive()
             .on('pointerdown', () => this.nextLevelActionOnClick())
             .on('pointerover', () => this.enterButtonHoverState())
             .on('pointerout', () => this.enterButtonRestState() );
+            */
     }
 
     actionOnClick(){
