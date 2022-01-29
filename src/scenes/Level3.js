@@ -16,8 +16,8 @@ export default class Level3 extends Scene
     {
         // Load audio  //cesar
         this.load.audio('theme', [
-            'audio/New_Hope.ogg',
-            'audio/New_Hope.mp3'
+            'audio/Yellow-Forest.ogg',
+            'audio/Yellow-Forest.mp3'
         ]);
 
         // Load images
@@ -25,7 +25,6 @@ export default class Level3 extends Scene
         this.load.image('sky','sky2.png');
         this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
-        
 
         // Load map
         this.load.tilemapTiledJSON('map','Level3.json');
@@ -47,8 +46,8 @@ export default class Level3 extends Scene
     create()
     {
         //musica de fondo
-        var music = this.sound.add('theme', {volume: 0.5, loop: true});
-        music.play();
+        this.music = this.sound.add('theme', {volume: 0.5, loop: true});
+        this.music.play();
         //
 
         this.gameover = false
@@ -56,9 +55,39 @@ export default class Level3 extends Scene
         //bg_1.fixedToCamera = true;
 
         // Create player
-        this.player = new Player(this,100,100);
+        this.player = new Player(this,100,300);
 
-        // Create slime enemy
+        // Create enemy
+
+        this.bat1 = new Bat(this,500,200);
+        this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
+        this.bat2 = new Bat(this,1500,300);
+        this.physics.add.overlap(this.bat2, this.player, this.bat2.playerHit,null,this);
+        this.bat3 = new Bat(this,2500,300);
+        this.physics.add.overlap(this.bat3, this.player, this.bat3.playerHit,null,this);
+        this.bat4 = new Bat(this,1000,250);
+        this.physics.add.overlap(this.bat4, this.player, this.bat4.playerHit,null,this);
+        this.bat5 = new Bat(this,2000,250);
+        this.physics.add.overlap(this.bat5, this.player, this.bat5.playerHit,null,this);
+        this.bat6 = new Bat(this,3000,400);
+        this.physics.add.overlap(this.bat6, this.player, this.bat6.playerHit,null,this);
+
+        // Create cloudplatforms
+        this.cloudPlatform1 = new CloudPlatform(this, 300, 400, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform1, this.player);
+        this.cloudPlatform2 = new CloudPlatform(this, 650, 470, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform2, this.player);
+        this.cloudPlatform3 = new CloudPlatform(this, 1100, 350, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform3, this.player);
+        this.cloudPlatform4 = new CloudPlatform(this, 1720, 420, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform4, this.player);
+        this.cloudPlatform5 = new CloudPlatform(this, 2300, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform5, this.player);
+        this.cloudPlatform6 = new CloudPlatform(this, 2600, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform6, this.player);
+        this.cloudPlatform7 = new CloudPlatform(this, 2900, 520, this.game.canvas.height / 4, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform7, this.player);
+
        
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
@@ -111,7 +140,8 @@ export default class Level3 extends Scene
         // Block camera follow
         this.cameras.main.stopFollow();
         // Set game over for blocking inputs in player
-        this.gameover = true
+        this.music.stop();
+        this.gameover = true;
         // Add GAME OVER text
         const gameOver = this.add.text(220, 200, 'GAME OVER', {
             fontSize: '60px',
@@ -132,6 +162,7 @@ export default class Level3 extends Scene
 
         //this.scene.pause();
     }
+    
     actionOnClick(){
         this.scene.restart()
     }
@@ -145,5 +176,18 @@ export default class Level3 extends Scene
     update (time, delta)
     {
         this.player.update(time,delta);
+        this.bat1.update(time,delta);
+        this.bat2.update(time,delta);
+        this.bat3.update(time,delta);
+        this.bat4.update(time,delta);
+        this.bat5.update(time,delta);
+        this.bat6.update(time,delta);
+        this.cloudPlatform1.update(time, delta);
+        this.cloudPlatform2.update(time, delta);
+        this.cloudPlatform3.update(time, delta);
+        this.cloudPlatform4.update(time, delta);
+        this.cloudPlatform5.update(time, delta);
+        this.cloudPlatform6.update(time, delta);
+        this.cloudPlatform7.update(time, delta);
     }
 }

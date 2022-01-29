@@ -71,7 +71,7 @@ export default class Player extends Physics.Arcade.Sprite
                 this.play('idle', true);
         }
 
-        if (this.scene.game.canvas.height < this.y && this.scene.scene.key != 'Level2') {
+        if (this.scene.game.canvas.height < this.y-100 && this.scene.scene.key != 'Level2') {
                 this.playerDead()
         }
     }

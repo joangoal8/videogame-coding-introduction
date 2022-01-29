@@ -7,6 +7,7 @@ import Bat from '../Bat'
 import Rino from '../Rino'
 
 import CloudPlatform from "../CloudPlatform";
+import { MouseConstraint } from 'matter';
 import gameControllerInstance from "../GameController";
 
 export default class MainScene extends Scene
@@ -54,8 +55,8 @@ export default class MainScene extends Scene
     create()
     {
         //musica de fondo
-        const music = this.sound.add('theme', {volume: 0.5, loop: true});
-        music.play();
+        this.music = this.sound.add('theme', {volume: 0.5, loop: true});
+        this.music.play();
         //
 
         this.gameover = false
@@ -78,17 +79,18 @@ export default class MainScene extends Scene
         this.rino1 = new Rino(this,900,100);
         this.physics.add.overlap(this.rino1, this.player, this.rino1.playerHit,null,this);
 
-        this.cloudPlatform2 = new CloudPlatform(this, 3128, 300, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
-        this.physics.add.collider(this.cloudPlatform2, this.player);
-        
-        this.cloudPlatform1 = new CloudPlatform(this, 3291, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+
+        this.cloudPlatform1 = new CloudPlatform(this, 3100, 500, this.game.canvas.width / 5, 'HORIZONTAL_RIGHT')
         this.physics.add.collider(this.cloudPlatform1, this.player);
 
-        this.cloudPlatform4 = new CloudPlatform(this, 3528, 300, this.game.canvas.width / 10, 'HORIZONTAL_RIGHT')
-        this.physics.add.collider(this.cloudPlatform4, this.player);
+        this.cloudPlatform2 = new CloudPlatform(this, 3200, 300, this.game.canvas.height / 5, 'VERTICAL_DOWN')
+        this.physics.add.collider(this.cloudPlatform2, this.player);
 
-        this.cloudPlatform5 = new CloudPlatform(this, 3791, 200, this.game.canvas.height / 5, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform5, this.player);
+        this.cloudPlatform3 = new CloudPlatform(this, 3200, 100, this.game.canvas.width / 10, 'HORIZONTAL_LEFT')
+        this.physics.add.collider(this.cloudPlatform3, this.player);
+
+        this.cloudPlatform4 = new CloudPlatform(this, 3100, 300, this.game.canvas.height / 5, 'VERTICAL_UP')
+        this.physics.add.collider(this.cloudPlatform4, this.player);
 
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
@@ -145,7 +147,8 @@ export default class MainScene extends Scene
         // Block camera follow
         this.cameras.main.stopFollow();
         // Set game over for blocking inputs in player
-        this.gameover = true
+        this.music.stop();
+        this.gameover = true;
         // Add GAME OVER text
         const gameOver = this.add.text(220, 200, 'GAME OVER', {
             fontSize: '60px',
@@ -201,7 +204,7 @@ export default class MainScene extends Scene
         this.rino1.update(time,delta);
         this.cloudPlatform1.update(time, delta);
         this.cloudPlatform2.update(time, delta);
+        this.cloudPlatform3.update(time, delta);
         this.cloudPlatform4.update(time, delta);
-        this.cloudPlatform5.update(time, delta);
     }
 }
