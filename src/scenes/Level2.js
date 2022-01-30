@@ -71,7 +71,7 @@ export default class Level2 extends Scene
         // Create slime enemy
         this.slime1 = new Slime(this,200,1400,75,'LEFT');
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
-        this.slime2 = new Slime(this,200,500,150,'LEFT');
+        this.slime2 = new Slime(this,240,700,170,'LEFT');
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
  
         // Create tiles
