@@ -51,7 +51,6 @@ export default class Slime extends GameSprite
         if (this.direction === 'LEFT' && (this.x > (this.startX - this.range / 2))) 
         {
             this.setVelocityX(-20);
-            
             if (this.x === (this.startX - this.range / 2)) 
             {
                 this.flipX=true;

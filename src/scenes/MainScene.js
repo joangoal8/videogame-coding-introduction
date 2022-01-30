@@ -73,10 +73,16 @@ export default class MainScene extends Scene
         this.slime1 = new Slime(this,750,100,200,'LEFT');
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
 
-        this.slime2 = new Slime(this,800,200,400,'LEFT');
+        this.slime2 = new Slime(this,900,200,100,'LEFT');
         this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
 
-        this.bat1 = new Bat(this,500,200);
+        this.slime3 = new Slime(this,1130,200,100,'LEFT');
+        this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
+
+        this.slime4 = new Slime(this,2500,400,150,'LEFT');
+        this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
+
+        this.bat1 = new Bat(this,3000,200);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
 
         this.rino1 = new Rino(this,900,100);
@@ -107,6 +113,9 @@ export default class MainScene extends Scene
         this.physics.add.collider(this.player,layer);
         this.physics.add.collider(this.slime1,layer);
         this.physics.add.collider(this.slime2,layer);
+        this.physics.add.collider(this.slime3,layer);
+        this.physics.add.collider(this.slime4,layer);
+
         //this.physics.add.collider(this.bat1,layer);
         this.physics.add.collider(this.rino1,layer);
 
@@ -213,6 +222,8 @@ export default class MainScene extends Scene
         this.player.update(time,delta);
         this.slime1.update(time,delta);
         this.slime2.update(time,delta);
+        this.slime3.update(time,delta);
+        this.slime4.update(time,delta);
         this.bat1.update(time,delta);
         this.rino1.update(time,delta);
         this.cloudPlatform1.update(time, delta);

@@ -69,9 +69,11 @@ export default class Level2 extends Scene
         this.player = new Player(this,100,1600);
 
         // Create slime enemy
-        this.slime1 = new Slime(this,200,100,50,'RIGHT');
+        this.slime1 = new Slime(this,200,1400,75,'LEFT');
         this.physics.add.overlap(this.slime1, this.player, this.slime1.playerHit,null,this);
-
+        this.slime2 = new Slime(this,200,500,150,'LEFT');
+        this.physics.add.overlap(this.slime2, this.player, this.slime2.playerHit,null,this);
+ 
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
         const tiles = map.addTilesetImage('Plataformas', 'tiles');
@@ -86,8 +88,8 @@ export default class Level2 extends Scene
         layer.setCollisionByExclusion([-1],true);
         this.physics.add.collider(this.player,layer);
         this.physics.add.collider(this.slime1,layer);
-
-
+        this.physics.add.collider(this.slime2,layer);
+ 
         this.cameras.main.setBounds(-80, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
 
@@ -172,5 +174,6 @@ export default class Level2 extends Scene
     {
         this.player.update(time,delta);
         this.slime1.update(time,delta);
+        this.slime2.update(time,delta);
     }
 }
