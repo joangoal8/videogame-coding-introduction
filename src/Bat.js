@@ -21,14 +21,21 @@ export default class Bat extends GameSprite
 
     update(time,delta)
     {
-        this.setVelocityX(-20);
-        this.play('move', true);      
+        if(this.scene != undefined)
+        {
+            this.setVelocityX(-20);
+            this.play('move', true);    
+        }  
     }
 
     playerHit (sprite1, sprite2) {
-        // Hide sprite
-        sprite2.depth = -5
-        // Show game over menu
-        this.scene.scene.gameOverMenu()
+        // Check if player is immune
+        if(!sprite2.immunity){
+            sprite2.playerDamage();
+            // Set inmmunity time
+            sprite2.immunity = true;
+            sprite2.immunity_end = this.scene.scene.time.now + 2000;
+        }
+        //sprite1.destroy();
     }
 }

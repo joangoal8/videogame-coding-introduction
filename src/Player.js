@@ -12,6 +12,9 @@ export default class Player extends Physics.Arcade.Sprite
         this.scene.physics.add.existing(this);
 
         this.score = 0;
+        this.life = 3;
+        this.immunity_end = 0;
+        this.immunity = false;
 
         //continuación
         this.cursor = this.scene.input.keyboard.createCursorKeys();
@@ -74,8 +77,9 @@ export default class Player extends Physics.Arcade.Sprite
         }
 
         if (this.scene.game.canvas.height < this.y-100 && this.scene.scene.key != 'Level2') {
-                this.playerDead()
+                this.playerDamage()
         }
+        this.setImmunity();
     }
 
 
@@ -91,8 +95,38 @@ export default class Player extends Physics.Arcade.Sprite
         sprite1.destroy();
     }
 
-    playerDead () {
-        // Show game over menu
-            this.scene.gameOverMenu()
+    playerDamage () {
+        this.life--;
+        console.log(this.scene);
+        this.scene.damage_sound.play();
+        switch(this.life){
+            case 0:
+                // Show game over menu
+                this.scene.gameOverMenu()
+                this.scene.heart3.destroy();
+                break;
+            case 1:
+                this.scene.heart2.destroy();
+                break;
+            case 2:
+                this.scene.heart1.destroy();
+                break;
+            default:
+                break;
+        }
+
+    }
+    setImmunity(){  
+        // too early      
+        if(this.immunity_end>this.scene.time.now){
+            console.log("Inmmunity");
+            this.tint = 0xff0000
+            return;
+        }else{
+            console.log("Inmmunity End");
+            this.immunity = false;
+            this.tint = 0xffffff
+        }
+        
     }
 }

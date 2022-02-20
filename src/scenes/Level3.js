@@ -18,10 +18,15 @@ export default class Level3 extends Scene
 	}
     preload()
     {
-        // Load audio  //cesar
+        // Load audio 
         this.load.audio('theme', [
             'audio/Yellow-Forest.ogg',
             'audio/Yellow-Forest.mp3'
+        ]);
+
+        this.load.audio('damage', [
+            'audio/damage.ogg',
+            'audio/damage.mp3',
         ]);
 
         // Load images
@@ -29,6 +34,8 @@ export default class Level3 extends Scene
         this.load.image('sky','sky2.png');
         this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
+        this.load.image('heart', 'heart.png');
+
 
         // Load map
         this.load.tilemapTiledJSON('map','Level3.json');
@@ -52,9 +59,10 @@ export default class Level3 extends Scene
         // Check for only one overlap 
         this.overlapTriggered = false;
         //musica de fondo
-        this.music = this.sound.add('theme', {volume: 0.5, loop: true});
+        this.music = this.sound.add('theme', {volume: 0.1, loop: true});
         this.music.play();
-        //
+        // Damage sound
+        this.damage_sound = this.sound.add('damage', {volume: 1, loop: false});
 
         this.gameover = false
         //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');
@@ -142,6 +150,10 @@ export default class Level3 extends Scene
         this.scoreText.setStroke('#00f', 5);
         this.scoreText.setShadow(2, 2, "#333333", 2, true, true);
         this.scoreText.depth=99;
+
+        this.heart1 = this.add.image(this.game.canvas.width-60 , 16, 'heart').setScrollFactor(0);
+        this.heart2 = this.add.image(this.game.canvas.width-40 , 16, 'heart').setScrollFactor(0);
+        this.heart3 = this.add.image(this.game.canvas.width-20 , 16, 'heart').setScrollFactor(0);
     }
 
     goalOverlap(player){
@@ -171,6 +183,7 @@ export default class Level3 extends Scene
 
 
     gameOverMenu(){
+        this.player.depth = -5;
         // Block camera follow
         this.cameras.main.stopFollow();
         // Set game over for blocking inputs in player

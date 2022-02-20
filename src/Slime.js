@@ -28,55 +28,57 @@ export default class Slime extends GameSprite
 
     update(time,delta)
     {
-        this.play('move', true);      
-
-        if (this.direction === 'RIGHT' && (this.x < (this.startX + this.range / 2))) 
+        if(this.scene != undefined)
         {
-            this.setVelocityX(+20);
-            if (this.x === (this.startX + this.range / 2)) {
-                this.flipX=false;
-                this.direction = 'LEFT';
-                this.setVelocityX(-20);
-            }
-        }else{ 
-            if (this.direction === 'RIGHT') 
+            this.play('move', true);      
+
+            if (this.direction === 'RIGHT' && (this.x < (this.startX + this.range / 2))) 
             {
-                this.x--;
-                this.flipX=false;
+                this.setVelocityX(+20);
+                if (this.x === (this.startX + this.range / 2)) {
+                    this.flipX=false;
+                    this.direction = 'LEFT';
+                    this.setVelocityX(-20);
+                }
+            }else{ 
+                if (this.direction === 'RIGHT') 
+                {
+                    this.x--;
+                    this.flipX=false;
+                    this.setVelocityX(-20);
+                    this.direction = 'LEFT';
+                }
+            }
+    
+            if (this.direction === 'LEFT' && (this.x > (this.startX - this.range / 2))) 
+            {
                 this.setVelocityX(-20);
-                this.direction = 'LEFT';
+                if (this.x === (this.startX - this.range / 2)) 
+                {
+                    this.flipX=true;
+                    this.direction = 'RIGHT';
+                    this.setVelocityX(+20);
+                }
+            }else{ 
+                if (this.direction === 'LEFT') 
+                {
+                    this.x++;
+                    this.flipX=true;
+                    this.setVelocityX(+20);
+                    this.direction = 'RIGHT';
+                }
             }
         }
- 
-        if (this.direction === 'LEFT' && (this.x > (this.startX - this.range / 2))) 
-        {
-            this.setVelocityX(-20);
-            if (this.x === (this.startX - this.range / 2)) 
-            {
-                this.flipX=true;
-                this.direction = 'RIGHT';
-                this.setVelocityX(+20);
-            }
-        }else{ 
-            if (this.direction === 'LEFT') 
-            {
-                this.x++;
-                this.flipX=true;
-                this.setVelocityX(+20);
-                this.direction = 'RIGHT';
-            }
-        }
-
-
-
-
-
     }
 
     playerHit (sprite1, sprite2) {
-        // Hide sprite
-        sprite2.depth = -5
-        // Show game over menu
-        this.scene.scene.gameOverMenu()
+        // Check if player is immune
+        if(!sprite2.immunity){
+            sprite2.playerDamage();
+            // Set inmmunity time
+            sprite2.immunity = true;
+            sprite2.immunity_end = this.scene.scene.time.now + 2000;
+        } 
+        //sprite1.destroy();
     }
 }
