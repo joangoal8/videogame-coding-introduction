@@ -97,7 +97,7 @@ export default class Player extends Physics.Arcade.Sprite
 
     playerDamage () {
         this.life--;
-        console.log(this.scene);
+        //console.log(this.scene);
         this.scene.damage_sound.play();
         switch(this.life){
             case 0:

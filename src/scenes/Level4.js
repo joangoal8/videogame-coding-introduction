@@ -31,14 +31,12 @@ export default class Level3 extends Scene
 
         // Load images
         this.load.image('tiles','Tileset2.png');
-        this.load.image('sky','sky2.png');
         this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
         this.load.image('heart', 'heart.png');
 
-
         // Load map
-        this.load.tilemapTiledJSON('map','Level3.json');
+        this.load.tilemapTiledJSON('map','Level4.json');
 
         // Load atlas
         this.load.atlas('sprites_jugador','player_anim/player_anim.png',
@@ -47,12 +45,10 @@ export default class Level3 extends Scene
         // Load spritesheets
         this.load.spritesheet('tilesSprites','Tileset2.png',
         { frameWidth: 32, frameHeight: 32 });
-        this.load.spritesheet('skyeSprites','sky2.png',
-        { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('bat', 'enemy_anim/bat_anim.png', 
         { frameWidth: 46, frameHeight: 30 });
 
-        }
+    }
 
     create()
     {
@@ -63,46 +59,25 @@ export default class Level3 extends Scene
         this.music.play();
         // Damage sound
         this.damage_sound = this.sound.add('damage', {volume: 1, loop: false});
-
         this.gameover = false
-        //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');
-        //bg_1.fixedToCamera = true;
 
         // Create player
-        this.player = new Player(this,100,300);
+        this.player = new Player(this,50,400);
 
         // Create enemy
-
-        this.bat1 = new Bat(this,500,200);
+        this.bat0 = new Bat(this,500,300);
+        this.physics.add.overlap(this.bat0, this.player, this.bat0.playerHit,null,this);
+        this.bat1 = new Bat(this,750,500);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
-        this.bat2 = new Bat(this,1500,300);
+        this.bat2 = new Bat(this,1000,350);
         this.physics.add.overlap(this.bat2, this.player, this.bat2.playerHit,null,this);
-        this.bat3 = new Bat(this,2500,300);
+        this.bat3 = new Bat(this,1250,200);
         this.physics.add.overlap(this.bat3, this.player, this.bat3.playerHit,null,this);
-        this.bat4 = new Bat(this,1000,250);
+        this.bat4 = new Bat(this,1500,300);
         this.physics.add.overlap(this.bat4, this.player, this.bat4.playerHit,null,this);
-        this.bat5 = new Bat(this,2000,250);
+        this.bat5 = new Bat(this,1750,450);
         this.physics.add.overlap(this.bat5, this.player, this.bat5.playerHit,null,this);
-        this.bat6 = new Bat(this,3000,400);
-        this.physics.add.overlap(this.bat6, this.player, this.bat6.playerHit,null,this);
 
-        // Create cloudplatforms
-        this.cloudPlatform1 = new CloudPlatform(this, 300, 400, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform1, this.player);
-        this.cloudPlatform2 = new CloudPlatform(this, 650, 470, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform2, this.player);
-        this.cloudPlatform3 = new CloudPlatform(this, 1100, 350, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform3, this.player);
-        this.cloudPlatform4 = new CloudPlatform(this, 1720, 420, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform4, this.player);
-        this.cloudPlatform5 = new CloudPlatform(this, 2300, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform5, this.player);
-        this.cloudPlatform6 = new CloudPlatform(this, 2600, 330, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform6, this.player);
-        this.cloudPlatform7 = new CloudPlatform(this, 2900, 520, this.game.canvas.height / 4, 'VERTICAL_DOWN')
-        this.physics.add.collider(this.cloudPlatform7, this.player);
-
-       
         // Create tiles
         const map = this.make.tilemap({key: 'map'});
         const tiles = map.addTilesetImage('Plataformas', 'tiles');
@@ -163,9 +138,24 @@ export default class Level3 extends Scene
           };
           console.log('overlap');
           this.overlapTriggered=true;
-          gameControllerInstance.nextLevel();
-
+          this.endGame();
     }
+
+    endGame(){
+        // Block camera follow
+        this.cameras.main.stopFollow();
+        // Set game over for blocking inputs in player
+        this.music.stop();
+        this.gameover = true;
+        // Add GAME OVER text
+        const gameOver = this.add.text(220, 200, 'THE END', {
+            fontSize: '60px',
+            fill: '#ff0000',
+            fontFamily: 'verdana, arial, sans-serif'
+        }).setScrollFactor(0);
+        gameOver.depth = 100;
+    }
+
 
     gameOverMenu(){
         this.player.depth = -5;
@@ -208,18 +198,11 @@ export default class Level3 extends Scene
     update (time, delta)
     {
         this.player.update(time,delta);
+        this.bat0.update(time,delta);
         this.bat1.update(time,delta);
         this.bat2.update(time,delta);
         this.bat3.update(time,delta);
         this.bat4.update(time,delta);
         this.bat5.update(time,delta);
-        this.bat6.update(time,delta);
-        this.cloudPlatform1.update(time, delta);
-        this.cloudPlatform2.update(time, delta);
-        this.cloudPlatform3.update(time, delta);
-        this.cloudPlatform4.update(time, delta);
-        this.cloudPlatform5.update(time, delta);
-        this.cloudPlatform6.update(time, delta);
-        this.cloudPlatform7.update(time, delta);
     }
 }
