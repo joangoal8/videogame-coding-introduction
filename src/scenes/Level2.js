@@ -34,7 +34,7 @@ export default class Level2 extends Scene
         // Load images
         this.load.image('tiles','Tileset2.png');
         this.load.image('sky','sky2.png');
-        this.load.image('player', 'idle-1.png');
+        //this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
         this.load.image('heart', 'heart.png');
 
@@ -45,6 +45,7 @@ export default class Level2 extends Scene
         // Load atlas
         this.load.atlas('sprites_jugador','player_anim/player_anim.png',
         'player_anim/player_anim_atlas.json');
+        this.load.atlas('player', 'Player/player.png', 'Player/player_atlas.json');
 
         // Load spritesheets
         this.load.spritesheet('tilesSprites','Tileset2.png',

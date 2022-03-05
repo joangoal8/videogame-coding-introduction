@@ -9,6 +9,9 @@ export default class Bat extends GameSprite
         // Move to the front
         this.depth = 99
         this.body.allowGravity = false;
+
+        this.scene.physics.add.overlap(this, this.scene.attackHitbox, this.takeDamage, null, this);
+
         
         this.anims.create({
             key: 'move',
@@ -38,4 +41,11 @@ export default class Bat extends GameSprite
         }
         //sprite1.destroy();
     }
+
+    takeDamage()
+    {
+        // TODO: Añadir sonido
+        this.destroy();
+    }
+
 }

@@ -1,0 +1,1334 @@
+{
+    "frames": [
+        {
+            "filename": "warrior_sheetnoeffect_0",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_1",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_2",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_3",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_4",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_5",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_6",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_7",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_8",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_9",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_10",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_11",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_12",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_13",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_14",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_15",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_16",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_17",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_18",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_19",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_20",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_21",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_22",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_23",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_24",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_25",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_26",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_27",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_28",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_29",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_30",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_31",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_32",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_33",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_34",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_35",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_36",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_37",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_38",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_39",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_40",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_41",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_42",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_43",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_44",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_45",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_46",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_47",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_48",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_49",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_50",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_51",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_52",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_53",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_54",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_55",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_56",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_57",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_58",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_59",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_60",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_61",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_62",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_63",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_64",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_65",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_66",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_67",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_68",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_69",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_70",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_71",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_72",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_73",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_74",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_75",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_76",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_77",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_78",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 44
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_79",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 88
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_80",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 132
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_81",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 176
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_82",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 220
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_83",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 264
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_84",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 308
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_85",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 352
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_86",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 396
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_87",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 440
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_88",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_89",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_90",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_91",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_92",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_93",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_94",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 414,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_95",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 483,
+                "y": 484
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_96",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 0,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_97",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 69,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_98",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 138,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_99",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 207,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_100",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 276,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "warrior_sheetnoeffect_101",
+            "frame": {
+                "w": 69,
+                "h": 44,
+                "x": 345,
+                "y": 528
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

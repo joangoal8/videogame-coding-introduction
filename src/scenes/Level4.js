@@ -31,7 +31,6 @@ export default class Level3 extends Scene
 
         // Load images
         this.load.image('tiles','Tileset2.png');
-        this.load.image('player', 'idle-1.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
         this.load.image('heart', 'heart.png');
 
@@ -39,8 +38,7 @@ export default class Level3 extends Scene
         this.load.tilemapTiledJSON('map','Level4.json');
 
         // Load atlas
-        this.load.atlas('sprites_jugador','player_anim/player_anim.png',
-        'player_anim/player_anim_atlas.json');
+        this.load.atlas('player', 'Player/player.png', 'Player/player_atlas.json');
 
         // Load spritesheets
         this.load.spritesheet('tilesSprites','Tileset2.png',
@@ -65,7 +63,7 @@ export default class Level3 extends Scene
         this.player = new Player(this,50,400);
 
         // Create enemy
-        this.bat0 = new Bat(this,500,300);
+        this.bat0 = new Bat(this,300,450);
         this.physics.add.overlap(this.bat0, this.player, this.bat0.playerHit,null,this);
         this.bat1 = new Bat(this,750,500);
         this.physics.add.overlap(this.bat1, this.player, this.bat1.playerHit,null,this);
@@ -93,6 +91,7 @@ export default class Level3 extends Scene
         this.physics.add.collider(this.player,layer);
 
         this.cameras.main.setBounds(-80, 0, map.widthInPixels, map.heightInPixels);
+
         this.cameras.main.startFollow(this.player);
 
         
