@@ -172,6 +172,7 @@ class AttackState extends State
         scene.attackHitbox.x = player.x;
         scene.attackHitbox.y = player.y;
         scene.attackHitbox.body.enable = true;
+        scene.attack_sound.play();
 
         player.setVelocityX(0);
         player.play('attack');
@@ -203,7 +204,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         this.scene.add.existing(this); //Añadimos a la escena lógica este jugador
         this.scene.physics.add.existing(this); //Añadimos a la escena física este jugador
         this.keys = this.scene.input.keyboard.createCursorKeys();
-        this.body.setSize(this.frame.width - 25, this.frame.height, false); // Adaptamos la máscara de colisiones
+        this.body.setSize(this.frame.width - 25, this.frame.height - 5, false); // Adaptamos la máscara de colisiones
         this.setOffset(25, 15); // Ajustamos el offset (cuando gira se reajusta) 
         this.speed = 125;
         this.body.setGravityY(400);
@@ -212,6 +213,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
         this.immunity_end = 0;
         this.immunity = false;
         this.depth = 99;
+        this.scale = 1.25;
 
         // Hitbox attack 
         this.scene.attackHitbox = this.scene.add.rectangle(this.x, this.y, 60, this.height, 0xff0000, 0); // (scene, x, y, width, height, fillColor, opacity)          

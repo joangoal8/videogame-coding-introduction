@@ -29,6 +29,12 @@ export default class Level3 extends Scene
             'audio/damage.mp3',
         ]);
 
+
+        this.load.audio('attack', [
+            'audio/sword-effect.wav'
+        ]);
+
+
         // Load images
         this.load.image('tiles','Tileset2.png');
         this.load.image('cloudPlatform', 'cloud-platform.png');
@@ -58,6 +64,8 @@ export default class Level3 extends Scene
         // Damage sound
         this.damage_sound = this.sound.add('damage', {volume: 1, loop: false});
         this.gameover = false
+
+        this.attack_sound = this.sound.add('attack', {volume: 1, loop: false});
 
         // Create player
         this.player = new Player(this,50,400);
