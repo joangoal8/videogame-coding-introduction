@@ -97,7 +97,7 @@ class WalkState extends State
         if(space.isDown)
         {
             // Potencia de salto corriendo
-            player.setVelocityY(-350);
+            player.setVelocityY(-400);                 
             this.stateMachine.transition('jump');
             return;
         }
@@ -322,11 +322,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite
     setImmunity(){  
         // too early      
         if(this.immunity_end>this.scene.time.now){
-            console.log("Inmmunity");
+            //console.log("Inmmunity");
             this.tint = 0xff0000
             return;
         }else{
-            console.log("Inmmunity End");
+            //console.log("Inmmunity End");
             this.immunity = false;
             this.tint = 0xffffff
         }

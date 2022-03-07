@@ -17,7 +17,10 @@ export default class Rino extends GameSprite
             frames: this.scene.anims.generateFrameNames('rino', { start: 1, end: 7}),
             frameRate: 10,
             repeat: -1
-        });   
+        });
+        
+        this.body.collideWorldBounds = false;
+        this.body.gravity.y = 200;
         
     }
 

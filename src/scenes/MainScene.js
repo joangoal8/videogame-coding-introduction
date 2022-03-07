@@ -29,6 +29,11 @@ export default class MainScene extends Scene
             'audio/damage.ogg',
             'audio/damage.mp3',
         ]);
+
+        this.load.audio('attack', [
+            'audio/sword-effect.wav'
+        ]);
+
         
         // Load images
         this.load.image('tiles','Tileset.png');
@@ -70,6 +75,9 @@ export default class MainScene extends Scene
         this.music.play();
         // Damage sound
         this.damage_sound = this.sound.add('damage', {volume: 1, loop: false});
+
+        this.attack_sound = this.sound.add('attack', {volume: 1, loop: false});
+
 
         this.gameover = false
         //var bg_1 = this.add.tileSprite(0, 0, this.sys.game.canvas.width*2, this.sys.game.canvas.height*2, 'bg-1');

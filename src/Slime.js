@@ -22,7 +22,8 @@ export default class Slime extends GameSprite
             frameRate: 10,
             repeat: -1
         });   
-        
+        this.body.collideWorldBounds = false;
+        this.body.gravity.y = 200;
     }
 
 
