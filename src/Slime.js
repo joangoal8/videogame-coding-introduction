@@ -14,7 +14,7 @@ export default class Slime extends GameSprite
         // Move to the front
         this.depth = 99
 
-        //this.body.setSize(this.frame.width - 30, this.frame.height - 10, true)
+        this.scene.physics.add.overlap(this, this.scene.attackHitbox, this.takeDamage, null, this);
 
         this.anims.create({
             key: 'move',
@@ -80,5 +80,11 @@ export default class Slime extends GameSprite
             sprite2.immunity_end = this.scene.scene.time.now + 2000;
         } 
         //sprite1.destroy();
+    }
+
+    takeDamage()
+    {
+        // TODO: Añadir sonido
+        this.destroy();
     }
 }

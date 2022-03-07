@@ -8,6 +8,9 @@ export default class Rino extends GameSprite
 
         // Move to the front
         this.depth = 99
+
+        this.scene.physics.add.overlap(this, this.scene.attackHitbox, this.takeDamage, null, this);
+
         
         this.anims.create({
             key: 'move',
@@ -36,5 +39,11 @@ export default class Rino extends GameSprite
             sprite2.immunity_end = this.scene.scene.time.now + 2000;
         }
         //sprite1.destroy();
+    }
+
+    takeDamage()
+    {
+        // TODO: Añadir sonido
+        this.destroy();
     }
 }
